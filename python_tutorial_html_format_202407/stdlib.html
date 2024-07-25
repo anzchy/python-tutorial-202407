@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en-US">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10. Brief Tour of the Standard Library &mdash; Python Doc 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. Brief Tour of the Standard Library — Part II" href="stdlib2.html" />
+    <link rel="prev" title="9. Classes" href="classes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Doc
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="appetite.html">1. Whetting Your Appetite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpreter.html">2. Using the Python Interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">3. An Informal Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlflow.html">4. More Control Flow Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datastructures.html">5. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">6. Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputoutput.html">7. Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">8. Errors and Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">9. Classes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Brief Tour of the Standard Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#operating-system-interface">10.1. Operating System Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-wildcards">10.2. File Wildcards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-arguments">10.3. Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-output-redirection-and-program-termination">10.4. Error Output Redirection and Program Termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-pattern-matching">10.5. String Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mathematics">10.6. Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#internet-access">10.7. Internet Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dates-and-times">10.8. Dates and Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-compression">10.9. Data Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-measurement">10.10. Performance Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-control">10.11. Quality Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batteries-included">10.12. Batteries Included</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib2.html">11. Brief Tour of the Standard Library — Part II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="venv.html">12. Virtual Environments and Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatnow.html">13. What Now?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">14. Interactive Input Editing and History Substitution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floatingpoint.html">15. Floating-Point Arithmetic:  Issues and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">16. Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Doc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">10. </span>Brief Tour of the Standard Library</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/stdlib.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="brief-tour-of-the-standard-library">
+<span id="tut-brieftour"></span><h1><span class="section-number">10. </span>Brief Tour of the Standard Library<a class="headerlink" href="#brief-tour-of-the-standard-library" title="Permalink to this heading">¶</a></h1>
+<section id="operating-system-interface">
+<span id="tut-os-interface"></span><h2><span class="section-number">10.1. </span>Operating System Interface<a class="headerlink" href="#operating-system-interface" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code> module provides dozens of functions for interacting with the
+operating system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>      <span class="c1"># Return the current working directory</span>
+<span class="go">&#39;C:\\Python314&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/server/accesslogs&#39;</span><span class="p">)</span>   <span class="c1"># Change current working directory</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;mkdir today&#39;</span><span class="p">)</span>   <span class="c1"># Run the command mkdir in the system shell</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>Be sure to use the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">os</span></code> style instead of <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">os</span> <span class="pre">import</span> <span class="pre">*</span></code>.  This
+will keep <code class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code> from shadowing the built-in <code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code> function which
+operates much differently.</p>
+<p id="index-0">The built-in <code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code> functions are useful as interactive
+aids for working with large modules like <code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">os</span><span class="p">)</span>
+<span class="go">&lt;returns a list of all module functions&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">os</span><span class="p">)</span>
+<span class="go">&lt;returns an extensive manual page created from the module&#39;s docstrings&gt;</span>
+</pre></div>
+</div>
+<p>For daily file and directory management tasks, the <code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code> module provides
+a higher level interface that is easier to use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shutil</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="s1">&#39;data.db&#39;</span><span class="p">,</span> <span class="s1">&#39;archive.db&#39;</span><span class="p">)</span>
+<span class="go">&#39;archive.db&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;/build/executables&#39;</span><span class="p">,</span> <span class="s1">&#39;installdir&#39;</span><span class="p">)</span>
+<span class="go">&#39;installdir&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="file-wildcards">
+<span id="tut-file-wildcards"></span><h2><span class="section-number">10.2. </span>File Wildcards<a class="headerlink" href="#file-wildcards" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">glob</span></code> module provides a function for making file lists from directory
+wildcard searches:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.py&#39;</span><span class="p">)</span>
+<span class="go">[&#39;primes.py&#39;, &#39;random.py&#39;, &#39;quote.py&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="command-line-arguments">
+<span id="tut-command-line-arguments"></span><h2><span class="section-number">10.3. </span>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this heading">¶</a></h2>
+<p>Common utility scripts often need to process command line arguments. These
+arguments are stored in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code> module’s <em>argv</em> attribute as a list.  For
+instance, let’s take the following <code class="file docutils literal notranslate"><span class="pre">demo.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># File demo.py</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is the output from running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">demo.py</span> <span class="pre">one</span> <span class="pre">two</span> <span class="pre">three</span></code> at the command
+line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;demo.py&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code> module provides a more sophisticated mechanism to process
+command line arguments.  The following script extracts one or more filenames
+and an optional number of lines to be displayed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+    <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Show top lines from each file&#39;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;filenames&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--lines&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When run at the command line with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">top.py</span> <span class="pre">--lines=5</span> <span class="pre">alpha.txt</span>
+<span class="pre">beta.txt</span></code>, the script sets <code class="docutils literal notranslate"><span class="pre">args.lines</span></code> to <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">args.filenames</span></code>
+to <code class="docutils literal notranslate"><span class="pre">['alpha.txt',</span> <span class="pre">'beta.txt']</span></code>.</p>
+</section>
+<section id="error-output-redirection-and-program-termination">
+<span id="tut-stderr"></span><h2><span class="section-number">10.4. </span>Error Output Redirection and Program Termination<a class="headerlink" href="#error-output-redirection-and-program-termination" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code> module also has attributes for <em>stdin</em>, <em>stdout</em>, and <em>stderr</em>.
+The latter is useful for emitting warnings and error messages to make them
+visible even when <em>stdout</em> has been redirected:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Warning, log file not found starting a new one</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">Warning, log file not found starting a new one</span>
+</pre></div>
+</div>
+<p>The most direct way to terminate a script is to use <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code>.</p>
+</section>
+<section id="string-pattern-matching">
+<span id="tut-string-pattern-matching"></span><h2><span class="section-number">10.5. </span>String Pattern Matching<a class="headerlink" href="#string-pattern-matching" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code> module provides regular expression tools for advanced string
+processing. For complex matching and manipulation, regular expressions offer
+succinct, optimized solutions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\bf[a-z]*&#39;</span><span class="p">,</span> <span class="s1">&#39;which foot or hand fell fastest&#39;</span><span class="p">)</span>
+<span class="go">[&#39;foot&#39;, &#39;fell&#39;, &#39;fastest&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\b[a-z]+) \1&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">,</span> <span class="s1">&#39;cat in the the hat&#39;</span><span class="p">)</span>
+<span class="go">&#39;cat in the hat&#39;</span>
+</pre></div>
+</div>
+<p>When only simple capabilities are needed, string methods are preferred because
+they are easier to read and debug:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;tea for too&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;too&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">)</span>
+<span class="go">&#39;tea for two&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="mathematics">
+<span id="tut-mathematics"></span><h2><span class="section-number">10.6. </span>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code> module gives access to the underlying C library functions for
+floating-point math:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.70710678118654757</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">10.0</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code> module provides tools for making random selections:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pear&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">])</span>
+<span class="go">&#39;apple&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>   <span class="c1"># sampling without replacement</span>
+<span class="go">[30, 83, 16, 4, 8, 81, 41, 50, 18, 33]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>    <span class="c1"># random float from the interval [0.0, 1.0)</span>
+<span class="go">0.17970987693706186</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>    <span class="c1"># random integer chosen from range(6)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">statistics</span></code> module calculates basic statistical properties
+(the mean, median, variance, etc.) of numeric data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">statistics</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.75</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">1.6071428571428572</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">1.25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">1.3720238095238095</span>
+</pre></div>
+</div>
+<p>The SciPy project &lt;<a class="reference external" href="https://scipy.org">https://scipy.org</a>&gt; has many other modules for numerical
+computations.</p>
+</section>
+<section id="internet-access">
+<span id="tut-internet-access"></span><h2><span class="section-number">10.7. </span>Internet Access<a class="headerlink" href="#internet-access" title="Permalink to this heading">¶</a></h2>
+<p>There are a number of modules for accessing the internet and processing internet
+protocols. Two of the simplest are <code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code> for retrieving data
+from URLs and <code class="xref py py-mod docutils literal notranslate"><span class="pre">smtplib</span></code> for sending mail:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://worldtimeapi.org/api/timezone/etc/UTC.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>             <span class="c1"># Convert bytes to a str</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>         <span class="c1"># Remove trailing newline</span>
+<span class="gp">...</span>
+<span class="go">datetime: 2022-01-01T01:36:47.689215+00:00</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="s1">&#39;soothsayer@example.org&#39;</span><span class="p">,</span> <span class="s1">&#39;jcaesar@example.org&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="sd">&quot;&quot;&quot;To: jcaesar@example.org</span>
+<span class="gp">... </span><span class="sd">From: soothsayer@example.org</span>
+<span class="gp">...</span>
+<span class="gp">... </span><span class="sd">Beware the Ides of March.</span>
+<span class="gp">... </span><span class="sd">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(Note that the second example needs a mailserver running on localhost.)</p>
+</section>
+<section id="dates-and-times">
+<span id="tut-dates-and-times"></span><h2><span class="section-number">10.8. </span>Dates and Times<a class="headerlink" href="#dates-and-times" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">datetime</span></code> module supplies classes for manipulating dates and times in
+both simple and complex ways. While date and time arithmetic is supported, the
+focus of the implementation is on efficient member extraction for output
+formatting and manipulation.  The module also supports objects that are timezone
+aware.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># dates are easily constructed and formatted</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">now</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">now</span>
+<span class="go">datetime.date(2003, 12, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m-</span><span class="si">%d</span><span class="s2">-%y. </span><span class="si">%d</span><span class="s2"> %b %Y is a %A on the </span><span class="si">%d</span><span class="s2"> day of %B.&quot;</span><span class="p">)</span>
+<span class="go">&#39;12-02-03. 02 Dec 2003 is a Tuesday on the 02 day of December.&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># dates support calendar arithmetic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">birthday</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1964</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">birthday</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">age</span><span class="o">.</span><span class="n">days</span>
+<span class="go">14368</span>
+</pre></div>
+</div>
+</section>
+<section id="data-compression">
+<span id="tut-data-compression"></span><h2><span class="section-number">10.9. </span>Data Compression<a class="headerlink" href="#data-compression" title="Permalink to this heading">¶</a></h2>
+<p>Common data archiving and compression formats are directly supported by modules
+including: <code class="xref py py-mod docutils literal notranslate"><span class="pre">zlib</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">gzip</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">bz2</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">lzma</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">zipfile</span></code> and
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">tarfile</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">zlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;witch which has which witches wrist watch&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">41</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="go">37</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zlib</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="go">b&#39;witch which has which witches wrist watch&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zlib</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">226805979</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-measurement">
+<span id="tut-performance-measurement"></span><h2><span class="section-number">10.10. </span>Performance Measurement<a class="headerlink" href="#performance-measurement" title="Permalink to this heading">¶</a></h2>
+<p>Some Python users develop a deep interest in knowing the relative performance of
+different approaches to the same problem. Python provides a measurement tool
+that answers those questions immediately.</p>
+<p>For example, it may be tempting to use the tuple packing and unpacking feature
+instead of the traditional approach to swapping arguments. The <code class="xref py py-mod docutils literal notranslate"><span class="pre">timeit</span></code>
+module quickly demonstrates a modest performance advantage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">Timer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Timer</span><span class="p">(</span><span class="s1">&#39;t=a; a=b; b=t&#39;</span><span class="p">,</span> <span class="s1">&#39;a=1; b=2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">timeit</span><span class="p">()</span>
+<span class="go">0.57535828626024577</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Timer</span><span class="p">(</span><span class="s1">&#39;a,b = b,a&#39;</span><span class="p">,</span> <span class="s1">&#39;a=1; b=2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">timeit</span><span class="p">()</span>
+<span class="go">0.54962537085770791</span>
+</pre></div>
+</div>
+<p>In contrast to <code class="xref py py-mod docutils literal notranslate"><span class="pre">timeit</span></code>’s fine level of granularity, the <code class="xref py py-mod docutils literal notranslate"><span class="pre">profile</span></code> and
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">pstats</span></code> modules provide tools for identifying time critical sections in
+larger blocks of code.</p>
+</section>
+<section id="quality-control">
+<span id="tut-quality-control"></span><h2><span class="section-number">10.11. </span>Quality Control<a class="headerlink" href="#quality-control" title="Permalink to this heading">¶</a></h2>
+<p>One approach for developing high quality software is to write tests for each
+function as it is developed and to run those tests frequently during the
+development process.</p>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code> module provides a tool for scanning a module and validating
+tests embedded in a program’s docstrings.  Test construction is as simple as
+cutting-and-pasting a typical call along with its results into the docstring.
+This improves the documentation by providing the user with an example and it
+allows the doctest module to make sure the code remains true to the
+documentation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the arithmetic mean of a list of numbers.</span>
+
+<span class="sd">    &gt;&gt;&gt; print(average([20, 30, 70]))</span>
+<span class="sd">    40.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">doctest</span>
+<span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>   <span class="c1"># automatically validate the embedded tests</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code> module is not as effortless as the <code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code> module,
+but it allows a more comprehensive set of tests to be maintained in a separate
+file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestStatisticalFunctions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_average</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">average</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">]),</span> <span class="mf">40.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]),</span> <span class="mi">1</span><span class="p">),</span> <span class="mf">4.3</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">):</span>
+            <span class="n">average</span><span class="p">([])</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+            <span class="n">average</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+
+<span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>  <span class="c1"># Calling from the command line invokes all tests</span>
+</pre></div>
+</div>
+</section>
+<section id="batteries-included">
+<span id="tut-batteries-included"></span><h2><span class="section-number">10.12. </span>Batteries Included<a class="headerlink" href="#batteries-included" title="Permalink to this heading">¶</a></h2>
+<p>Python has a “batteries included” philosophy.  This is best seen through the
+sophisticated and robust capabilities of its larger packages. For example:</p>
+<ul class="simple">
+<li><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">xmlrpc.client</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">xmlrpc.server</span></code> modules make implementing
+remote procedure calls into an almost trivial task.  Despite the modules’
+names, no direct knowledge or handling of XML is needed.</p></li>
+<li><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> package is a library for managing email messages, including
+MIME and other <span class="target" id="index-1"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2822.html"><strong>RFC 2822</strong></a>-based message documents. Unlike <code class="xref py py-mod docutils literal notranslate"><span class="pre">smtplib</span></code> and
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code> which actually send and receive messages, the email package has
+a complete toolset for building or decoding complex message structures
+(including attachments) and for implementing internet encoding and header
+protocols.</p></li>
+<li><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code> package provides robust support for parsing this
+popular data interchange format.  The <code class="xref py py-mod docutils literal notranslate"><span class="pre">csv</span></code> module supports
+direct reading and writing of files in Comma-Separated Value format,
+commonly supported by databases and spreadsheets.  XML processing is
+supported by the <code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom</span></code> and
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax</span></code> packages. Together, these modules and packages
+greatly simplify data interchange between Python applications and
+other tools.</p></li>
+<li><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">sqlite3</span></code> module is a wrapper for the SQLite database
+library, providing a persistent database that can be updated and
+accessed using slightly nonstandard SQL syntax.</p></li>
+<li><p>Internationalization is supported by a number of modules including
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">gettext</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">locale</span></code>, and the <code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code> package.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classes.html" class="btn btn-neutral float-left" title="9. Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stdlib2.html" class="btn btn-neutral float-right" title="11. Brief Tour of the Standard Library — Part II" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jack Cheng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
