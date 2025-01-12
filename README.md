@@ -1,16 +1,34 @@
-This repo contains different versions of the official python tutorial, only for noncommercial use.
+## Description of this REPO
 
-# source files    
+This repo utilize the concept of `CODE AS YOU READ`, only by typing the code by yourself and run the code manully,  can you learn the craft of programming.
+
+
+
+this repo contains different versions of the official python tutorial, only for noncommercial use.
+
+descriptions of the three folders are below:
+
+`python_tutorial_html_format_202407`: html version of python tutorial.
+
+`Python-Tutorial-ipynb—202407`: ipynb version of the official python tutorial.
+
+`Python-Tutorial-ipynb-no-code-version`: 20250112 updated, with all the code blank, but the markdown text remains, this no code version is for you type in the code as you read the official tutorial. I.E. CODE AS YOU READ.
+
+
+
+## Source files and converting tools to create this repo siles
+
+### tutorial source files    
 > https://github.com/python/cpython       
 
-# tool for converting ipynb format:   
+### tool for converting ipynb format:   
 converted by rst2ipynb: 
 https://pypi.org/project/rst2ipynb/
 
 how to use:
 ```rst2ipynb xxx.rst -o xxx.ipynb```
 
-# tool for converting to html format:  
+### tool for converting to html format:  
 html/epub converted by Sphinx: 
 http://www.sphinx-doc.org  
 
